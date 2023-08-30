@@ -1,0 +1,54 @@
+<!-- Sebelum Depedency Management -->
+- saat kita membuat aplikasi, biasanya kita sering sekali membutuhkan library atau framework
+- sebelum menggunakan depedency management, jika kita membutuhkan library atau framework, 
+maka kita perlu download library atay framework tersebut secara manual setelah itu kita masukkan ke dalam kode program kita
+- jika library nya sederhana, mungkin masih mudah untuk mengelolahnya, tapi bagaimana jika ternyata library tesersebut membutuhkan library lain,
+dan tidak hanya satu tapi ada banya?
+- alhasil kita harus download semua library yang dibutuhkan oleh library yang kita gunakan
+- belum lagi, kita harus tahu versi berapa library yang dibutuhkan oleh library yang kita gunakan
+- dan kadang project kita pun menjadi benhgkak karena ukuran library yang terlalu banyak
+
+<!-- Dependency Management -->
+- masalah yang sudah kita bahas sebelumnya, bisa kita hindari jika kita menggunakan depedency management Tool
+- Depedency Management Tool bertugas untuk mendownload semua library yang kita butuhkan berserta library yang dibutuhkan oleh library yang kita gunakan
+- semua dilakukan secara otomatis
+- dan juga Depedency Management Tool bisa donwnload library sesuai denga versi yang dibutuhkan secara otomatis
+
+<!-- Pengenalan Composer -->
+- Composer adalah salah satu Depedency Management Tool yang populer untuk PHP
+- Composer terinspirasi dari depedency management NPM(nodejs) dan Bundler(ruby)
+- dengan Composer, kita cukup membuat konfigurasi file yang berisi depedency yang kita butuhkan
+- Composer akan secara otomatis donwload semua library dan depedency yang dibutuhkan sesuai dengan versi yang kita gunakan
+- kita juga bisa update bersi library yang kita gunakan dengan mudah hanya dengan mengubah versi di file konfigurasi yang terdapat di project kita
+
+<!-- Hello World -->
+- Composer secara otomatis akan menyimpan semua library yang kita gunakan di dectory vendor
+- lantas bagaimana cara include file library
+- kita tidak perlu melakukan satu per satu, kita cukup menggunakan file/vendor/autoload.php yang sudah secara otomatis di generete oleh Composer
+- file autoload.php tersebut bisa secara otomatis menginclude class yang kita butuhkan di library
+- jadi file PHP kita, kita cukup hanya menambahkan autoload.php saja
+
+<!-- Autoload -->
+- composer menggunakan fitur PHP Class Autoload untuk load class yang terdapat di directory vendor
+- selaini itu, kita juga bisa memasukan source code di project kita ke autoload agar kita tidak perlu melakukan include satu per satu file PHP classnya
+- namun agar bisa autoload, ada standar yang perlu kita ikuti
+- setelah kita nenambahkan autoload, kita perlu melakukan generate ulang file autoload.php
+- untuk melakukan itu, kita bisa menggunakan perintah : composer dump-autoload
+
+<!-- Aturan Pembuatan Source Code -->
+- pada composer.json sebelum, kita sudah menggunakan namespace Dokterkepin di directiry src
+- Artinya jika kita import class di namespace Dokterkepin, nama dia akan include file di directory src
+- jika namespacenya Dokterkepin, maka foldernya adalah src, jika namespacenya Dokterkepin/Data, maka foldernya adalah src/Data
+- sedangkan untuk nama file, harus sama dengan nama class, jika nama classnya People, maka nama file harus Pople.php
+
+
+<!-- Repository -->
+- Repository merupakan tempat semua depedency di simpan
+- secara default, composer menggunakan repository packagist
+- kita juga menambahkan repository selain pacagist jika mau
+
+<!-- Menambahan Dependency -->
+- salah satu keuntungan menggunakan Composer adalah, kita bisa dengan mudah menambahkan depedency library yang kita butuhkan
+- terdapat dua jenis library di composer, library yang digunakan ketika development, dan library yang digunakan ketika aplikasi berjalan
+- contoh library yang digunakan ketika development adalah unit test misalnya
+- untuk menambah library, kita bisa tambahkan di composer dengan attribute require (untuk library aplikasi), dan require-dev (untuk library development)

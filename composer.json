@@ -1,0 +1,21 @@
+{
+    "name": "dokterkepin/belajar-php-composer",
+    "description": "Belajar Composer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "dokterkepin\\" : "src/"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "dokterkepin"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "dokterkepin/belajar-php-composer-hello": "2.0.0",
+        "monolog/monolog" : "3.0.0"
+    }
+}
